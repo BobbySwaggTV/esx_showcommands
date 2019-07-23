@@ -41,38 +41,34 @@ TriggerEvent('es:addCommand', 'showjob', function(source)
     local job = xPlayer.job.label
     local jobgrade = xPlayer.job.grade_label
 
-TriggerClientEvent('esx:showNotification', _source, 'You are working as: ~g~' .. job .. ' ~s~-~g~ ' .. jobgrade)
---TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'inform', text = 'You are working as: ' .. job .. ' - ' .. jobgrade})  
+TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'inform', text = 'You are working as: ' .. job .. ' - ' .. jobgrade})  
 end, {help = "Check what job you have"})
 
-TriggerEvent('es:addCommand', 'showcash', function(source)
+TriggerEvent('es:addCommand', 'cash', function(source)
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
     local wallet 		= getMoneyFromUser(_source)
 
-TriggerClientEvent('esx:showNotification', _source, 'You currently have ~g~$~g~' .. wallet .. ' ~s~in your wallet~g~ ')
---TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'inform', text = 'You currently have $' .. wallet .. ' in your wallet'})
+TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'inform', text = 'You currently have $' .. wallet .. ' in your wallet'})
 end, {help = "Check how much is in your wallet"})
 
-TriggerEvent('es:addCommand', 'showbank', function(source)
+TriggerEvent('es:addCommand', 'bank', function(source)
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
     local bank 			= getBankFromUser(_source)
 
-TriggerClientEvent('esx:showNotification', _source, 'You currently have ~g~$~g~' .. bank .. ' ~s~in your bank~g~ ')
---TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'inform', text = 'You currently have $' .. bank .. ' in your bank'})
+TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'inform', text = 'You currently have $' .. bank .. ' in your bank'})
 end, {help = "Check how much is in your bank"})
 
-TriggerEvent('es:addCommand', 'showdirty', function(source)
+TriggerEvent('es:addCommand', 'dirtycash', function(source)
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
     local black_money 	= getBlackMoneyFromUser(_source)
 
-TriggerClientEvent('esx:showNotification', _source, 'You currently have ~g~$~g~' .. black_money .. ' ~s~dirty money in your wallet~g~ ')
---TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'inform', text = 'You currently have $' .. black_money .. ' dirty money in your wallet'})
+TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'inform', text = 'You currently have $' .. black_money .. ' dirty money in your wallet'})
 end, {help = "Check how much dirty money you have"})
 
-TriggerEvent('es:addCommand', 'showsociety', function(source)
+TriggerEvent('es:addCommand', 'societymoney', function(source)
 	local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
 	
@@ -87,13 +83,11 @@ TriggerEvent('es:addCommand', 'showsociety', function(source)
 			money = 0
 		end
 		
-                TriggerClientEvent('esx:showNotification', _source, 'You currently have ~g~$~g~' .. money .. ' ~s~in the society account~g~ ')
-	        --TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'inform', text = 'You currently have $' .. money .. ' in the society account'})
+	        TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'inform', text = 'You currently have $' .. money .. ' in the society account'})
 																	
 	else
 
-	        TriggerClientEvent('esx:showNotification', _source, '~r~Access not granted!')
-		--TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'error', text = 'Access not granted!'})
+		TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'error', text = 'Access not granted!'})
 																			
 	end
 end, {help = "Check your society's balance"})
